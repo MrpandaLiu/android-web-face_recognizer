@@ -1,6 +1,6 @@
 <!--
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-13 20:55:48
+ * @LastEditTime: 2020-10-17 17:39:56
  * @FilePath: \DIPproject\teacherweb\src\views\Login.vue
  * @Description: add some description
 -->
@@ -40,10 +40,13 @@ export default {
         password: this.password,
       }).then((res) => {
         const { code, data } = res.data;
+        console.log(data);
         if (code === -1) {
           this.$message.error(data);
         } else {
           this.$message.success("登录成功");
+          localStorage.setItem("name", data.teacherName);
+          this.$router.push("/home");
         }
       });
     },
@@ -60,6 +63,7 @@ export default {
     text-align: center;
     color: #054280;
     padding-left: 40px;
+    margin-bottom: 40px;
   }
 }
 </style>

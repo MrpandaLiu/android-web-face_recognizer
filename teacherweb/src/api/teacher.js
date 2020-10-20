@@ -1,6 +1,6 @@
 /*
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-13 20:34:35
+ * @LastEditTime: 2020-10-20 10:08:06
  * @FilePath: \DIPproject\teacherweb\src\api\teacher.js
  * @Description: add some description
  */
@@ -15,4 +15,13 @@ export function login(data) {
     method: "post",
     data: data
   });
+}
+
+// 获取列表
+export function getList(data) {
+  return request({
+    url: "/getlist",
+    method: "post",
+    data: data
+  })
 }

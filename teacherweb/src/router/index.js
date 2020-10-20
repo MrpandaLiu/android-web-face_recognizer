@@ -1,6 +1,6 @@
 /*
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-13 19:16:25
+ * @LastEditTime: 2020-10-16 19:51:27
  * @FilePath: \DIPproject\teacherweb\src\router\index.js
  * @Description: add some description
  */
@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: import('../views/Home.vue')
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/',

@@ -1,13 +1,13 @@
 /*
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-13 20:43:20
+ * @LastEditTime: 2020-10-17 17:31:20
  * @FilePath: \DIPproject\server\controller.js
  * @Description: add some description
  */
 const formidable = require('formidable');
 const spawn = require("child_process").spawn;
 const { savePic } = require("./utils");
-const { checkTeacher } = require('./db/teacher');
+const { checkTeacher, addReception, getDB } = require('./db/teacher');
 
 /**
  * 训练数据集
@@ -48,9 +48,14 @@ const handleReception = (req, res) => {
       // 监听脚本的输出 当成功时返回脚本的输出结果
       process2.stdout.on('data', function (data) {
         console.log('stdout2: ' + data);
-        res.send({
-          data: data.toString()
-        })
+        addReception(data.toString(), (err, data) => {
+          if(err) {
+            console.log(err);
+          }
+          res.send({
+            data: condition
+          })
+        });
       });
 
       process2.stderr.on('data', function (data) {
@@ -71,11 +76,42 @@ const handleReception = (req, res) => {
 
 const handleLogin = (req, res) => {
   const condition = req.body;
-  checkTeacher(req, res, condition);
+  checkTeacher(condition, (err,data) => {
+    if(data.length === 0) {
+      res.send({
+        code: -1,
+        data: "登录失败"
+      });
+    }
+    else {
+      res.send({
+        code: 0,
+        data: data[0]
+      });
+    }
+  });
 }
+
+
+/**
+ * 获取列表
+ */
+
+const getList = (req, res) => {
+  const condition = req.body;
+  getDB(condition, (err, data) => {
+    if(err) {
+      console.log(err);
+    }
+    res.send({
+      data: data
+    })
+  });   
+ }
 
 module.exports = {
   handleReception,
   trainingData,
-  handleLogin
+  handleLogin,
+  getList
 }

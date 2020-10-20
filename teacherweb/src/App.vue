@@ -1,6 +1,6 @@
 <!--
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-13 20:35:19
+ * @LastEditTime: 2020-10-16 19:53:15
  * @FilePath: \DIPproject\teacherweb\src\App.vue
  * @Description: add some description
 -->
@@ -11,4 +11,8 @@
 </template>
 
 <style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+}
 </style>

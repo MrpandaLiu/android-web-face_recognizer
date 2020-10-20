@@ -1,9 +1,14 @@
 <!--
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-13 21:08:44
+ * @LastEditTime: 2020-10-13 21:16:49
  * @FilePath: \undefinedd:\cs\数字图像处理\DIPproject\README.md
  * @Description: add some description
 -->
+# 环境安装
+1. pip3 install opencv-python opencv-contrib-python 需要安装opencv的这两个模块
+2. 需要node.js和npm
+
+# 
 1. 服务器端（node.js）开启后就开始训练
 2. python脚本通过opencv提供的实例进行训练并生成模型
 3. 客户端（uni-app）进行拍照，然后发送formdata请求
