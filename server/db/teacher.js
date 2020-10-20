@@ -1,6 +1,6 @@
 /*
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-20 10:46:23
+ * @LastEditTime: 2020-10-20 19:15:34
  * @FilePath: \DIPproject\server\db\teacher.js
  * @Description: add some description
  */
@@ -20,9 +20,9 @@ const addReception = (condition, callback) => {
   const date = new Date();
   const year = date.getFullYear(),
   month = date.getMonth()+1 > 9 ? date.getMonth()+1 : `0${date.getMonth()+1}`,
-  day = date.getDay() > 9 ? date.getDay() : `0${date.getDay()}`;
+  day = date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`;
   const time = getTime();
-  const sql = `INSERT INTO receptioninfo('studentName', 'year', 'month', 'day', 'time') VALUES ('${name}', '${year}', '${month}', '${day}', '${time}')`;
+  const sql = `INSERT INTO receptioninfo(studentName, year, month, day, time) VALUES ('${name.trim()}', '${year}', '${month}', '${day}', '${time}')`;
   connection.query(sql, callback);
 };
 

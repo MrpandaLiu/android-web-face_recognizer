@@ -1,6 +1,6 @@
 /*
  * @LastEditors: panda_liu
- * @LastEditTime: 2020-10-17 17:31:20
+ * @LastEditTime: 2020-10-20 19:26:20
  * @FilePath: \DIPproject\server\controller.js
  * @Description: add some description
  */
@@ -48,12 +48,19 @@ const handleReception = (req, res) => {
       // 监听脚本的输出 当成功时返回脚本的输出结果
       process2.stdout.on('data', function (data) {
         console.log('stdout2: ' + data);
-        addReception(data.toString(), (err, data) => {
+        if(data.indexOf('error')!==-1) {
+          res.send({
+            data: "签到失败"
+          })
+          return;
+        }
+        const name = data.toString();
+        addReception(name, (err, data) => {
           if(err) {
             console.log(err);
           }
           res.send({
-            data: condition
+            data: name+"签到成功！"
           })
         });
       });

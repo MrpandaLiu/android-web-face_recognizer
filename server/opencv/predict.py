@@ -1,7 +1,7 @@
 '''
 LastEditors: panda_liu
-LastEditTime: 2020-10-08 13:06:43
-FilePath: \数字图像处理\server\opencv\predict.py
+LastEditTime: 2020-10-20 19:17:36
+FilePath: \DIPproject\server\opencv\predict.py
 Description: add some description
 '''
 
@@ -54,16 +54,16 @@ def draw_text(img, text, x, y):
 
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-''' try: '''
+try:
 
-test_img = cv2.imread(PublicPath+"test-data/" + sys.argv[1])
+  test_img = cv2.imread(PublicPath+"test-data/" + sys.argv[1])
 
-predicted_img,text = predict(test_img)
+  predicted_img,text = predict(test_img)
 
-print(text)
-''' 
+  print(text)
+
 except:
-  print('error') '''
+  print('error')
 
 ''' cv2.imshow('test', cv2.resize(predicted_img, (400, 500)))
 cv2.waitKey(0)
