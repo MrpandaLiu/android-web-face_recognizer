@@ -1,9 +1,9 @@
 {
     "@platforms" : [ "android", "iPhone", "iPad" ],
     "id" : "H511EB868", /*应用的标识*/
-    "name" : "re-mobile", /*应用名称，程序桌面图标名称*/
+    "name" : "人脸识别签到", /*应用名称，程序桌面图标名称*/
     "version" : {
-        "name" : "1.0", /*应用版本名称*/
+        "name" : "1.1", /*应用版本名称*/
         "code" : "100"
     },
     "description" : "", /*应用描述信息*/

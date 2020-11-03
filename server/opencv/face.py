@@ -1,7 +1,7 @@
 '''
 LastEditors: panda_liu
-LastEditTime: 2020-10-09 19:07:39
-FilePath: \server\opencv\face.py
+LastEditTime: 2020-11-03 20:16:42
+FilePath: \receptiond:\cs\数字图像处理\DIPproject\server\opencv\face.py
 Description: add some description
 '''
 import cv2
