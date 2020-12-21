@@ -1,7 +1,7 @@
 '''
 LastEditors: panda_liu
-LastEditTime: 2020-12-13 14:05:55
-FilePath: \DIPproject\server\opencv\predict.py
+LastEditTime: 2020-12-21 20:22:17
+FilePath: \yunniubaod:\cs\数字图像处理\DIPproject\server\opencv\predict.py
 Description: add some description
 '''
 
@@ -42,6 +42,7 @@ def predict(test_img):
   # 返回结果
   return img, label_text
 
+face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 try:
   test_img = cv2.imread(PublicPath+"test-data/" + sys.argv[1])
   predicted_img,text = predict(test_img)
